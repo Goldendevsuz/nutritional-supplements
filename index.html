@@ -3120,6 +3120,25 @@
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+        function myFunction() {
+        let input = document.getElementById('mySearch');
+        let filter = input.value.toUpperCase();
+        let ul = document.getElementById("myMenu");
+        let li = ul.getElementsByTagName('li');
+
+        for (let i = 0; i < li.length; i++) {
+            let a = li[i].getElementsByTagName("h3")[0];
+                if (a) {
+                let txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                    } else {
+                    li[i].style.display = "none";
+                    }
+                }   
+            }
+        }
     </script>
 
 </body>
